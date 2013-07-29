@@ -23,7 +23,7 @@ define('MANIFEST_REG', '/<html[^>]*manifest\s*=\s*\"(\w+\.manifest)\"[^>]*>/i');
 
 $ACCEPT_FILEEXTS = explode(
 	'|',
-	'htm|html|js|css|gif|png|jpg|jpeg|bmp|webm|mp3|wmv|mid|ogg'
+	'htm|html|js|css|gif|png|jpg|jpeg|bmp|webm|mp3|wmv|mid|ogg|ini'
 );
 
 $MANIFEST_FILE = 'cache.manifest';
