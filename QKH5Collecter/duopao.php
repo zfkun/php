@@ -9,9 +9,11 @@ $indexFile = (isset($argv) && count($argv) > 2 ? $argv[2] : $_targetDirName . '.
 $wordReplaceMap = array(
 	array(
 		'http://resource.duopao.com/duopao/games/small_games/advplus/ad.htm',
+		'../../advplus/ad.htm',
 		'"../../"+this.version+"/res/LeiYooResLoadImg.png"',
 	),
 	array(
+		'http://m.7k7k.com/categories_1_24_4_0.html',
 		'http://m.7k7k.com/categories_1_24_4_0.html',
 		'"about:blank"',
 	),
@@ -21,11 +23,13 @@ $manifestReplaceMap = array(
 	array(
 		$indexFile,
 		$_remoteBasePath. '/' . $_targetDirName . '/',
+		'../../1.5/lib/'
 		// ' ',
 	),
 	array(
-		'index.html',
+		'index.htm',
 		'',
+		'js/',
 		// '%20',
 	),
 );

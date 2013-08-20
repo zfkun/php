@@ -21,22 +21,31 @@ define('CLIENT_DIRNAME', strtolower($_targetDirName));
 define('WHITESPACE_ENCODE', '%20');
 define('MANIFEST_REG', '/<html[^>]*manifest\s*=\s*\"(\w+\.manifest)\"[^>]*>/i');
 
+
 $ACCEPT_FILEEXTS = explode(
 	'|',
-	'htm|html|js|css|gif|png|jpg|jpeg|bmp|webm|mp3|wmv|mid|ogg|ini'
+	'htm|html|js|css|gif|png|jpg|jpeg|bmp|webm|mp3|wmv|mid|ogg|ini|ttf|json|swf'
 );
 
 $MANIFEST_FILE = 'cache.manifest';
 
+// <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+// <link rel="apple-touch-startup-image" href="sp.png">
+$APPLE_TOUCH_ICON = '';
+$APPLE_TOUCH_STARTUP = '';
 
 
-
+// <link(?:.*)\s+href\=\"(apple-touch-icon-precomposed.png)\"(?:.*)(?:\s+rel\=\"apple-touch-icon-precomposed\"\s+)(?:.*)(?=\/>)\/>
+// <link(?:\s+rel\=\"apple-touch-icon-precomposed\"\s+)href\=\"(apple-touch-icon-precomposed.png)\"\s+(?=\/>)\/>
+// <link\s+href\=\"(apple-touch-icon-precomposed.png)\"\s+(?:rel\=\"apple-touch-icon-precomposed\"\s+)(?=\/>)\/>
+// <link\s+rel\=\"apple-touch-icon-precomposed\"\s+href\=\"([^\"])*\"\s?\/?(?=\>)\>
+// <link\s+rel\=\"apple-touch-startup-image\"\s+href\=\"([^\"])*\"\s?\/?(?=\>)\>
 
 echo "start \"" . REMOTE_BASE . "\"...\r\n";
 
 
-// download index.html
-downloads( array($indexFile => "index.html"), false, 'getManifestFile' );
+// download index.htm
+downloads( array($indexFile => "index.htm"), false, 'getManifestFile' );
 
 // download Application Cache File
 downloads( array($MANIFEST_FILE), false, 'contentFix' );
