@@ -19,7 +19,7 @@ if (isEmpty($_targetDirName)) {
 define('REMOTE_BASE', $_remoteBasePath. '/' . $_targetDirName . '/');
 define('CLIENT_DIRNAME', strtolower($_targetDirName));
 define('WHITESPACE_ENCODE', '%20');
-define('MANIFEST_REG', '/<html[^>]*manifest\s*=\s*\"(\w+\.manifest)\"[^>]*>/i');
+define('MANIFEST_REG', '/<html[^>]*manifest\s*=\s*\"([^\"]+)\"[^>]*>/i');
 
 
 $ACCEPT_FILEEXTS = explode(
